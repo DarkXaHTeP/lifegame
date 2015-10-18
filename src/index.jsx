@@ -1,10 +1,10 @@
 import ReactDom from 'react-dom';
 import React from 'react';
-import Life from './components/life.jsx';
+import App from './components/app';
 
 window.React = React;
 
 ReactDom.render(
-    <Life />,
+    <App />,
     document.getElementById("container")
 );

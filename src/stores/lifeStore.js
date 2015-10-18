@@ -65,28 +65,36 @@ class LifeStore {
         clearInterval(this.interval);
         this.interval = setInterval(() => {
             this._world.tick();
-            this._eventEmitter.emit('change');
+            this.emitChange();
         }, updateInterval);
+        this.emitChange();
     }
 
     handleStopGame() {
         this._isGameRunning = false;
         clearInterval(this.interval);
-        this._eventEmitter.emit('change');
+        this.emitChange();
     }
 
     handleNextStep() {
         this._world.tick();
-        this._eventEmitter.emit('change');
+        this.emitChange();
     }
 
-    handleRestart() {
+    handleRestart({ width, height }) {
+        this._width = width;
+        this._height = height;
+
         this._world = new GameOfLife.World(this._height, this._width);
-        this._eventEmitter.emit('change');
+        this.emitChange();
     }
 
     on(eventName, callback) {
         this._eventEmitter.on(eventName, callback);
+    }
+
+    emitChange() {
+        this._eventEmitter.emit('change');
     }
 
     processAction({ actionType, data }) {
