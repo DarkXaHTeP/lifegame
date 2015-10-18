@@ -4,14 +4,14 @@
   "description": "Conway's game of life using React.JS",
   "main": "index.js",
   "scripts": {
-    "build":"browserify index.jsx --extension=jsx -t babelify -o bundle.js",
+    "start": "browserify src/index.jsx --extension=.jsx -t babelify -o public/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DarkXaHTeP/lifegame.git"
+    "url": "DarkXaHTeP/lifegame"
   },
-  "author": "",
+  "author": "DarkXaHTeP",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/DarkXaHTeP/lifegame/issues"
@@ -23,6 +23,8 @@
     "watchify": "^3.3.1"
   },
   "dependencies": {
-    "react": "^0.13.3"
+    "game-of-life-es6": "^0.2.4",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
   }
 }

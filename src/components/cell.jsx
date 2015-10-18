@@ -6,7 +6,7 @@ class Cell extends React.Component {
     }
 
     render() {
-        return <span className='game-cell'></span>
+        return <span className={ this.props.data.alive ? 'game-cell alive' : 'game-cell' }></span>
     }
 }
 
