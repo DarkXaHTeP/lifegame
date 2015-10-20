@@ -3,11 +3,12 @@ node_js:
 - 4.2.1
 sudo: false
 before_install:
-- chmod 755 ./deploy.sh
+- chmod 755 ./scripts/build.sh
+- chmod 755 ./scripts/deploy.sh
 script: npm run build
 deploy:
   provider: script
-  script: ./deploy.sh
+  script: ./scripts/deploy.sh
   skip_cleanup: true
   on:
     tags: true

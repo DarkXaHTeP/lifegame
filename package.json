@@ -4,7 +4,9 @@
   "description": "Conway's game of life using React.JS",
   "main": "index.js",
   "scripts": {
-    "build": "browserify src/index.jsx --extension=.jsx -t babelify -o public/bundle.js",
+    "build": "./scripts/build.sh",
+    "build:prod": "browserify src/index.jsx --extension=.jsx -t babelify | uglifyjs > public/bundle.js",
+    "build:dev": "browserify src/index.jsx --extension=.jsx -t babelify -o public/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +22,7 @@
   "devDependencies": {
     "babelify": "^6.1.3",
     "browserify": "^11.0.1",
+    "uglifyjs": "^2.4.10",
     "watchify": "^3.3.1"
   },
   "dependencies": {
