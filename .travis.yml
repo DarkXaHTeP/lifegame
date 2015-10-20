@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- 4.2.1
+sudo: false
+script: npm run build
+deploy:
+  provider: script
+  script: deploy.sh
+  skip_cleanup: true
+  on:
+    tags: true
