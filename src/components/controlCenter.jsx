@@ -6,7 +6,7 @@ class ControlCenter extends React.Component {
     constructor(props) {
         super(props);
 
-        this.interval = 15;
+        this.interval = 20;
 
         this.width = props.boardWidth;
         this.height = props.boardHeight;

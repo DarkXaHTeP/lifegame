@@ -4,7 +4,6 @@ import dispatcher from '../dispatcher';
 
 const defaultGameBoardWidth = 90;
 const defaultGameBoardHeight = 60;
-const defaultUpdateInterval = 20;
 
 class LifeStore {
     constructor() {
