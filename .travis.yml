@@ -5,9 +5,8 @@ sudo: false
 before_install:
 - chmod 755 ./deploy.sh
 script: npm run build
+after_success: ./deploy.sh
 deploy:
   provider: script
-  script: deploy.sh
+  script: ./deploy.sh
   skip_cleanup: true
-  on:
-    tags: true
