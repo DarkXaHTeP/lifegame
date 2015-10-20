@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -o errexit #abort if any command fails
 
-REPO = $GH_TOKEN@github.com/DarkXaHTeP/lifegame.git
+REPO=$GH_TOKEN@github.com/DarkXaHTeP/lifegame.git
 cd public
 git init
 git config user.name "travis CI deploy"
