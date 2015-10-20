@@ -2,9 +2,9 @@ import actionTypes from '../actions/actionTypes';
 import EventEmitter from 'events';
 import dispatcher from '../dispatcher';
 
-const defaultGameBoardWidth = 50;
-const defaultGameBoardHeight = 40;
-const defaultUpdateInterval = 15;
+const defaultGameBoardWidth = 90;
+const defaultGameBoardHeight = 60;
+const defaultUpdateInterval = 20;
 
 class LifeStore {
     constructor() {
