@@ -1,6 +1,7 @@
 import actionTypes from '../actions/actionTypes';
 import EventEmitter from 'events';
 import dispatcher from '../dispatcher';
+import { World } from 'game-of-life-es6';
 
 const defaultGameBoardWidth = 90;
 const defaultGameBoardHeight = 60;
@@ -12,7 +13,7 @@ class LifeStore {
         this._isGameRunning = false;
 
         this._eventEmitter = new EventEmitter;
-        this._world = new GameOfLife.World(this._height, this._width);
+        this._world = new World(this._height, this._width);
         dispatcher.on('action', this.processAction.bind(this));
 
         this._actionHandlers = {
@@ -84,7 +85,7 @@ class LifeStore {
         this._width = width;
         this._height = height;
 
-        this._world = new GameOfLife.World(this._height, this._width);
+        this._world = new World(this._height, this._width);
         this.emitChange();
     }
 
