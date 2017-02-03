@@ -4,11 +4,8 @@
   "description": "Conway's game of life using React.JS",
   "main": "index.js",
   "scripts": {
-    "build": "./scripts/build.sh",
-    "build:prod": "browserify src/index.jsx --extension=.jsx -t babelify | uglifyjs > public/bundle.js",
-    "build:dev": "browserify src/index.jsx --extension=.jsx -t babelify -o public/bundle.js",
-    "build:webpack": "webpack --bail",
-    "server": "http-server ./public -p 8000",
+    "build": "webpack --bail",
+    "start": "http-server ./public -p 8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
