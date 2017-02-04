@@ -1,4 +1,5 @@
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: path.join(__dirname, '/src'),
@@ -22,8 +23,23 @@ module.exports = {
                     }
                 ],
                 exclude:['node_modules']
+            },
+
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader'
+                    }
+                ]
             }
         ]
-    }
+    },
 
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "index.html",
+            filename: "index.html"
+        })
+    ]
 }
