@@ -1,6 +1,7 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
+var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function (env) {
     const isProd = env === "prod";
@@ -25,7 +26,7 @@ module.exports = function (env) {
         module: {
             rules: [
                 {
-                    test: /\.(jsx|js)(\?.*$|$)/,
+                    test: /\.(jsx|js)$/,
                     use: [
                         {
                             loader: 'babel-loader'
@@ -41,6 +42,18 @@ module.exports = function (env) {
                             loader: 'html-loader'
                         }
                     ]
+                },
+
+                {
+                    test: /\.css$/,
+                    use: ExtractTextWebpackPlugin.extract({
+                        use: {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: isProd
+                            }
+                        }
+                    })
                 }
             ]
         },
@@ -49,6 +62,10 @@ module.exports = function (env) {
             new HtmlWebpackPlugin({
                 template: "index.html",
                 filename: "index.html"
+            }),
+
+            new ExtractTextWebpackPlugin({
+                filename: "bundle.css"
             })
         ]
     }
