@@ -1,12 +1,11 @@
 language: node_js
 node_js:
-- 4.2.1
+- 6.9.5
 sudo: false
-before_install:
-- chmod 755 ./scripts/build.sh
-- chmod 755 ./scripts/deploy.sh
 install: npm --production=false install
-script: npm run build
+script: npm run build:prod
+before_deploy:
+- chmod 755 ./scripts/deploy.sh
 deploy:
   provider: script
   script: ./scripts/deploy.sh
