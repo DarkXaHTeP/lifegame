@@ -4,7 +4,8 @@
   "description": "Conway's game of life using React.JS",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --bail",
+    "build": "webpack",
+    "build:prod": "webpack --bail --env prod",
     "start": "http-server ./public -p 8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
