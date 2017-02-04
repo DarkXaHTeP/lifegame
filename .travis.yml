@@ -3,7 +3,7 @@ node_js:
 - 6.9.5
 sudo: false
 install: npm --production=false install
-script: npm run build
+script: npm run build:prod
 before_deploy:
 - chmod 755 ./scripts/deploy.sh
 deploy:
