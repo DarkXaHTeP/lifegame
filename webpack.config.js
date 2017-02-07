@@ -46,7 +46,19 @@ module.exports = function (env) {
                             }
                         }
                     })
+                },
+
+                {
+                    test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+                    use: {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: 'assets/[name].[ext]'
+                        }
+                    }
                 }
+
             ]
         },
 
