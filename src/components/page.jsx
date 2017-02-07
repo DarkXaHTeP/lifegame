@@ -1,9 +1,9 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 function Page(props) {
-    return <div>
+    return <div className="container-fluid">
         <Navbar>
             <Navbar.Header>
                 <Navbar.Brand>
@@ -11,8 +11,8 @@ function Page(props) {
                 </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-                <li><LinkContainer to={{ pathname: '/game' }}><Button>Game </Button></LinkContainer></li>
-                <li><LinkContainer to={{ pathname: '/about' }}><Button>About</Button></LinkContainer></li>
+                <li><LinkContainer to={{ pathname: '/game' }}><NavItem>Game </NavItem></LinkContainer></li>
+                <li><LinkContainer to={{ pathname: '/about' }}><NavItem>About</NavItem></LinkContainer></li>
             </Nav>
         </Navbar>
         <div>
