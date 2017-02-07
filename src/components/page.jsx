@@ -11,8 +11,8 @@ function Page(props) {
                 </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-                <li><LinkContainer to={{ pathname: '/game' }}><NavItem>Game </NavItem></LinkContainer></li>
-                <li><LinkContainer to={{ pathname: '/about' }}><NavItem>About</NavItem></LinkContainer></li>
+                <LinkContainer to={{ pathname: '/game' }}><NavItem>Game </NavItem></LinkContainer>
+                <LinkContainer to={{ pathname: '/about' }}><NavItem>About</NavItem></LinkContainer>
             </Nav>
         </Navbar>
         <div>

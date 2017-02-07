@@ -93,6 +93,10 @@ class LifeStore {
         this._eventEmitter.on(eventName, callback);
     }
 
+    off(eventName, callback) {
+        this._eventEmitter.removeListener(eventName, callback);
+    }
+
     emitChange() {
         this._eventEmitter.emit('change');
     }

@@ -13,9 +13,11 @@ class Game extends React.Component {
         this.boardWidth = width;
         this.boardHeight = height;
 
-        lifeStore.on("change", () => {
-            this.setState(this.getState())
-        });
+        this.handleStoreChange = this.handleStoreChange.bind(this);
+    }
+
+    handleStoreChange() {
+        this.setState(this.getState());
     }
 
     getState() {
@@ -23,6 +25,14 @@ class Game extends React.Component {
             board: lifeStore.getBoard(),
             isGameRunning: lifeStore.isGameRunning()
         }
+    }
+
+    componentDidMount() {
+        lifeStore.on("change", this.handleStoreChange);
+    }
+
+    componentWillUnmount() {
+        lifeStore.off("change", this.handleStoreChange);
     }
 
     render() {
