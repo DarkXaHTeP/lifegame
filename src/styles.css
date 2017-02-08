@@ -18,11 +18,24 @@ body * {
 
 .game-cell {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
 }
 
 .alive {
     background-color: black;
     border: 1px solid white;
 }
+
+.btn-with-margin {
+    margin: 10px 0 10px 0;
+}
+
+.input-with-margin {
+    margin-left: 10px;
+}
+
+.width-input {
+    margin-right: 20px;
+}
+

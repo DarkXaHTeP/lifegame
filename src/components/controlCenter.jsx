@@ -1,6 +1,7 @@
 import React from 'react';
 import actionTypes from '../actions/actionTypes'
 import actionCreator from '../actions/actionCreator';
+import { FormControl, ControlLabel, ButtonGroup, Button, Col, Row } from 'react-bootstrap';
 
 class ControlCenter extends React.Component {
     constructor(props) {
@@ -44,21 +45,37 @@ class ControlCenter extends React.Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        return !(this.width == nextProps.width && this.width== nextProps.height && this.props.running == nextProps.running);
+        return !(this.width == nextProps.width && this.width == nextProps.height && this.props.running == nextProps.running);
     }
     render() {
-        return <div className='controls'>
-            Update every <input type='number' defaultValue={this.interval} onChange={ this.saveInterval.bind(this) } disabled={ this.props.running } min='1'/> ms<br />
-            <button onClick={ this.startGame.bind(this) } disabled={ this.props.running }>Start game</button>
-            <button onClick={ this.stopGame.bind(this) } disabled={ !this.props.running }>Stop game</button>
-            <button onClick={ this.nextStep.bind(this) } disabled={ this.props.running }>Next step</button>
-            <hr />
-            Width: <input type='number' defaultValue={this.width} onChange={ this.saveWidth.bind(this) }
-                   disabled={ this.props.running } min='1'/><br />
-            Height: <input type='number' defaultValue={this.height} onChange={ this.saveHeight.bind(this) }
-                   disabled={ this.props.running } min='1'/><br />
-            <button onClick={ this.resetGame.bind(this) } disabled={ this.props.running }>Create new game</button>
-                <hr />
+        return <div>
+            <Row>
+                <Col xs={6}>
+                    <div className='form-inline'>
+                        <ControlLabel>Update every</ControlLabel>
+                        <FormControl bsClass='input-with-margin' type='number' defaultValue={this.interval} onChange={this.saveInterval.bind(this)} disabled={this.props.running} min='1' /> ms<br />
+                    </div>
+                    <ButtonGroup bsClass='btn-with-margin'>
+                        <Button bsSize='small' bsStyle='success' onClick={this.startGame.bind(this)} disabled={this.props.running}>Start game</Button>
+                        <Button bsSize='small' bsStyle='danger' onClick={this.stopGame.bind(this)} disabled={!this.props.running}>Stop game</Button>
+                        <Button bsSize='small' onClick={this.nextStep.bind(this)} disabled={this.props.running}>Next step</Button>
+                    </ButtonGroup>
+                </Col>
+                <Col xs={6}>
+                    <div className='form-inline'>
+                        <ControlLabel>Width:</ControlLabel>
+                        <FormControl bsClass='input-with-margin width-input' type='number' defaultValue={this.width} onChange={this.saveWidth.bind(this)}
+                            disabled={this.props.running} min='1' />
+
+                        <ControlLabel>Height:</ControlLabel>
+                        <FormControl bsClass='input-with-margin' type='number' defaultValue={this.height} onChange={this.saveHeight.bind(this)}
+                            disabled={this.props.running} min='1' />
+                    </div>
+                    <ButtonGroup bsClass='btn-with-margin'>
+                        <Button bsSize='small' bsStyle='primary' onClick={this.resetGame.bind(this)} disabled={this.props.running}>Create new game</Button>
+                    </ButtonGroup>
+                </Col>
+            </Row>
         </div>
     }
 }

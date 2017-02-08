@@ -1,42 +1,16 @@
 import React from 'react';
-import lifeStore from '../stores/lifeStore';
-import Board from './board';
-import ControlCenter from './controlCenter';
+import { Router, Route, hashHistory, Redirect } from 'react-router';
+import Game from './game'
+import About from './about';
+import Page from './page';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = this.getState();
-
-        let { width, height } = lifeStore.getBoardSize();
-        this.boardWidth = width;
-        this.boardHeight = height;
-
-        lifeStore.on("change", () => {
-            this.setState(this.getState())
-        });
-    }
-
-    getState() {
-        return {
-            board: lifeStore.getBoard(),
-            isGameRunning: lifeStore.isGameRunning()
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                <ControlCenter running={ this.state.isGameRunning }
-                               boardWidth={ this.boardWidth }
-                               boardHeight={ this.boardHeight }/>
-
-                <div className='board-container'>
-                    <Board data={ this.state.board }/>
-                </div>
-            </div>)
-    }
-}
+const App = () =>
+        <Router history={hashHistory}>
+            <Route path="/" component={Page}>
+                <Route path='game' component={Game} />
+                <Route path='about' component={About} />
+            </Route>
+            <Redirect from='*' to='/game' />
+        </Router>
 
 export default App;
