@@ -1,12 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, Redirect } from 'react-router';
 import Game from './game'
 import About from './about';
 import Page from './page';
 
-function App() {
-    return (
+const App = () =>
         <Router history={hashHistory}>
             <Route path="/" component={Page}>
                 <Route path='game' component={Game} />
@@ -14,7 +12,5 @@ function App() {
             </Route>
             <Redirect from='*' to='/game' />
         </Router>
-    )
-}
 
 export default App;

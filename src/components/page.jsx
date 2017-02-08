@@ -1,9 +1,9 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Grid } from 'react-bootstrap';
 
-function Page(props) {
-    return <div className="container-fluid">
+const Page = (props) =>
+    <div>
         <Navbar>
             <Navbar.Header>
                 <Navbar.Brand>
@@ -15,10 +15,9 @@ function Page(props) {
                 <LinkContainer to={{ pathname: '/about' }}><NavItem>About</NavItem></LinkContainer>
             </Nav>
         </Navbar>
-        <div>
+        <Grid fluid={true}>
             {props.children}
-        </div>
+        </Grid>
     </div>
-}
 
 export default Page;
